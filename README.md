@@ -1,2 +1,2 @@
 Aprendendo a desenvolver
-Projeto dos ingressos, desenvolvidopor Marcelo Monteiro
+Projeto dos ingressos, desenvolvido por Marcelo Monteiro
