@@ -43,23 +43,22 @@ public class GerenciadorDeSessaoTest {
 		List<Sessao> sessoes = Arrays.asList(sessaoDasDez);
 		Sessao sessao = new Sessao(sessaoDasDez.getHorario().minusHours(1), rogueOne, sala3D);
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoes);
-		Assert.assertFalse(gerenciador.cabe(sessaoDasDez));
+		Assert.assertFalse(gerenciador.cabe(sessao));
 	}
 	
 	@Test
 	public void garanteQueNaoDevePermitirSessoesIniciandoDentroDoHorarioDeUmaSessaoJaExistente() {
 		List<Sessao> sessoes = Arrays.asList(sessaoDasDez);
-		Sessao sessao = new Sessao(sessaoDasDez.getHorario().minusHours(1), rogueOne, sala3D);
+		Sessao sessao = new Sessao(sessaoDasDez.getHorario().plusHours(1), rogueOne, sala3D);
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoes);
-		Assert.assertFalse(gerenciador.cabe(sessaoDasDez));
+		Assert.assertFalse(gerenciador.cabe(sessao));
 	}
 	
 	@Test
 	public void garanteQueDevePermitirUmaInsercaoEntreDoisFilmes() {
-		List<Sessao> sessoes = Arrays.asList(sessaoDasDez);
-		Sessao sessao = new Sessao(sessaoDasDez.getHorario().minusHours(1), rogueOne, sala3D);
+		List<Sessao> sessoes = Arrays.asList(sessaoDasDez, sessaoDasDezoito);
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoes);
-		Assert.assertFalse(gerenciador.cabe(sessaoDasDez));
+		Assert.assertTrue(gerenciador.cabe(sessaoDasTreze));
 	}
 
 }
