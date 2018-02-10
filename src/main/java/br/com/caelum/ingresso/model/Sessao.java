@@ -38,8 +38,6 @@ public class Sessao {
 		this.horario = horario;
 		this.filme = filme;
 		this.sala = sala;
-		System.out.println(sala.getPreco());
-		System.out.println(filme.getPreco());
 		this.preco = sala.getPreco().add(filme.getPreco());
 
 	}
